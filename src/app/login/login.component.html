@@ -1,1 +1,42 @@
-<p>login works!</p>
+<div class="d-flex justify-content-center align-items-center vh-100 bg-dark">
+  <div
+    class="card text-white"
+    style="width: 100%; max-width: 400px; background-color: #2c2f33"
+  >
+    <div class="card-body">
+      <h5 class="card-title text-center">Entrar com usuário autorizado</h5>
+
+      <form [formGroup]="this.form">
+        <div class="mb-3">
+          <label for="username" class="form-label">Usuário</label>
+          <input
+            type="text"
+            class="form-control bg-dark text-white border-light"
+            id="username"
+            placeholder="Digite seu usuário"
+            formControlName="Usuario"
+            [ngClass]="validarControl('Usuario')"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Senha</label>
+          <input
+            type="password"
+            class="form-control bg-dark text-white border-light"
+            id="password"
+            placeholder="Digite sua senha"
+            formControlName="Senha"
+            [ngClass]="validarControl('Senha')"
+          />
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="button" class="btn btn-primary" (click)="logar()">
+            Entrar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
