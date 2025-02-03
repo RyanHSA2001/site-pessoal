@@ -18,21 +18,21 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
   form!: FormGroup;
   viewModel = new LoginViewModel();
+  dadosInvalidos = false;
 
   constructor(private fb: FormBuilder, private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
       Usuario: [this.viewModel.Usuario, Validators.required],
-      Senha: [
-        this.viewModel.Senha,
-        [Validators.required, Validators.minLength(6)],
-      ],
+      Senha: [this.viewModel.Senha, [Validators.required]],
     });
   }
 
   logar() {
     if (this.form.valid) {
+      this.dadosInvalidos = false;
+      this.viewModel = this.form.value;
       this.loginService.logar(this.viewModel).subscribe(
         (response: any) => {
           console.log('Logou', response);
@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
           console.error('Erro', error);
         }
       );
+    } else {
+      this.dadosInvalidos = true;
     }
   }
 

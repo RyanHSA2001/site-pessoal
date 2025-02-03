@@ -7,7 +7,7 @@ import { LoginViewModel } from './login-viewmodel';
   providedIn: 'root', // Isso registra o serviço como um singleton no root do Angular
 })
 export class LoginService {
-  private apiUrl = `teste/login`; // URL base para a API de usuários
+  private apiUrl = `http://localhost:8000/api/login`; // URL base para a API de usuários
 
   constructor(private http: HttpClient) {}
 

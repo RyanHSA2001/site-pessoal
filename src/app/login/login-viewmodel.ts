@@ -1,4 +1,4 @@
 export class LoginViewModel {
-  Usuario!: string;
-  Senha!: string;
+  Usuario: string = '';
+  Senha: string = '';
 }
